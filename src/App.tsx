@@ -1,5 +1,9 @@
+import { NavBar } from "./components/common/NavBar";
 function App() {
-  return <h1 className="text-orange-600 font-bold underline">Hello world!</h1>;
+  return <div>
+    <NavBar />
+    <h1 className="text-orange-600 font-bold underline">Hello world!</h1>
+  </div>
 }
 
 export default App;
