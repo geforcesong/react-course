@@ -1,46 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 export const NavBar: React.FC = () => {
   const [mobileMenuStatus, setMobileMenuStatus] = useState<boolean>(false);
+  const menus = useMemo(
+    () => [
+      {
+        text: "Home",
+        link: "/",
+      },
+      {
+        text: "About",
+        subMenus: [
+          { text: "Demo", link: "/demo" },
+          { text: "Contact", link: "/contact" },
+          { text: "License", link: "/license" },
+        ],
+      },
+      {
+        text: "Demos",
+        subMenus: [
+          { text: "Countries", link: "/countries" },
+          { text: "Calculator", link: "/calculator" },
+        ],
+      },
+      {
+        text: "Services",
+        link: "/services",
+      },
+    ],
+    []
+  );
 
   const handleMobileClick = () => {
     setMobileMenuStatus((prev) => !prev);
   };
 
   return (
-    <nav className="bg-white shadow-lg">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between">
-          <div className="flex space-x-7">
+    <nav className="bg-white shadow-md font-semibold">
+      <div>
+        <div className="flex justify-between bg-black">
+          <div className="flex">
             <div>
               <a href="#" className="flex items-center py-4 px-2">
-                <span className="font-semibold text-gray-500 text-lg">
-                  Navigation
-                </span>
+                <span className="text-white text-lg">React Course</span>
               </a>
             </div>
-            <div className="hidden md:flex items-center space-x-1 font-semibold">
-              <a href="" className="py-4 px-2 text-white bg-green-500">
-                Home
-              </a>
-              <a
-                href=""
-                className="py-4 px-2 text-gray-500 hover:text-green-500 transition duration-300"
-              >
-                Services
-              </a>
-              <a
-                href=""
-                className="py-4 px-2 text-gray-500 hover:text-green-500 transition duration-300"
-              >
-                About
-              </a>
-              <a
-                href=""
-                className="py-4 px-2 text-gray-500 hover:text-green-500 transition duration-300"
-              >
-                Contact Us
-              </a>
+            <div className="hidden md:flex items-center">
+              {menus.map((menu) => {
+                if (!menu.subMenus || !menu.subMenus.length) {
+                  return (
+                    <a
+                      key={menu.text}
+                      href={menu.link}
+                      className="py-4 px-2 text-gray-100 hover:text-white hover:bg-green-500"
+                    >
+                      {menu.text}
+                    </a>
+                  );
+                }
+                return (
+                  <div
+                    key={menu.text}
+                    className="group relative py-4 px-2 text-gray-100 hover:text-white hover:bg-green-500"
+                  >
+                    <button>{menu.text}</button>
+                    <div className="hidden flex-col group-hover:flex text-white bg-black absolute py-1 px-1 top-[55px] left-[0px]">
+                      {menu.subMenus.map((sm) => {
+                        return (
+                          <div
+                            className="py-1 px-2 hover:bg-green-500"
+                            key={sm.text}
+                          >
+                            <a href={sm.link} className="text-white ">
+                              {sm.text}
+                            </a>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-3 ">
@@ -62,15 +102,11 @@ export const NavBar: React.FC = () => {
               className="outline-none mobile-menu-button"
               onClick={handleMobileClick}
             >
-              <svg
-                className=" w-6 h-6 text-gray-500 hover:text-green-500 "
-                x-show="!showMenu"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
+              <i
+                className={`${
+                  mobileMenuStatus ? "icon-close" : "icon-view-list"
+                } text-white text-xl mr-2`}
+              ></i>
             </button>
           </div>
         </div>
@@ -78,38 +114,29 @@ export const NavBar: React.FC = () => {
       {mobileMenuStatus && (
         <div className="mobile-menu">
           <ul className="">
-            <li className="active">
-              <a
-                href="index.html"
-                className="block text-sm px-2 py-4 text-white bg-green-500 font-semibold"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#services"
-                className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-              >
-                Contact Us
-              </a>
-            </li>
+            {menus.map((menu) => {
+              return (
+                <li key={menu.text}>
+                  <div>
+                    <a href={menu.link} className="block text-sm px-2 py-2">
+                      {menu.text}
+                    </a>
+                    {menu.subMenus?.length &&
+                      menu.subMenus.map((subMenu) => {
+                        return (
+                          <a
+                            key={subMenu.text}
+                            href={subMenu.link}
+                            className="block text-sm pl-8 py-2"
+                          >
+                            {subMenu.text}
+                          </a>
+                        );
+                      })}
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
