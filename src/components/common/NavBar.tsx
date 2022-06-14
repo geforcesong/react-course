@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 
 export const NavBar: React.FC = () => {
   const [mobileMenuStatus, setMobileMenuStatus] = useState<boolean>(false);
+  console.log(helloworld);
   const menus = useMemo(
     () => [
       {
