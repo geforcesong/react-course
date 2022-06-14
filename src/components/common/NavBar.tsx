@@ -97,7 +97,7 @@ export const NavBar: React.FC = () => {
               Sign Up
             </a>
           </div>
-          <div className="md:hidden flex items-center">
+          <div className='md:hidden flex items-center'>
             <button
               className='outline-none mobile-menu-button'
               onClick={handleMobileClick}
