@@ -1,11 +1,20 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NavBar } from './components/common/NavBar';
+import AboutPage from './pages/AboutPage';
+import HomePage from './pages/HomePage';
+import LicensePage from './pages/LicensePage';
+
 function App() {
   return (
     <div>
-      <NavBar />
-      <h1 className='text-orange-600 font-bold underline'>Hello world!</h1>
-
-      <i className='icon-close'></i>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/license' element={<LicensePage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

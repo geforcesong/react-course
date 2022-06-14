@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 
 export const NavBar: React.FC = () => {
   const [mobileMenuStatus, setMobileMenuStatus] = useState<boolean>(false);
@@ -12,8 +13,7 @@ export const NavBar: React.FC = () => {
       {
         text: 'About',
         subMenus: [
-          { text: 'Demo', link: '/demo' },
-          { text: 'Contact', link: '/contact' },
+          { text: 'About us', link: '/about' },
           { text: 'License', link: '/license' },
         ],
       },
@@ -50,13 +50,13 @@ export const NavBar: React.FC = () => {
               {menus.map((menu) => {
                 if (!menu.subMenus || !menu.subMenus.length) {
                   return (
-                    <a
+                    <Link
                       key={menu.text}
-                      href={menu.link}
+                      to={menu.link!}
                       className='py-4 px-2 text-gray-100 hover:text-white hover:bg-green-500'
                     >
                       {menu.text}
-                    </a>
+                    </Link>
                   );
                 }
                 return (
@@ -69,12 +69,15 @@ export const NavBar: React.FC = () => {
                       {menu.subMenus.map((sm) => {
                         return (
                           <div
-                            className='py-1 px-2 hover:bg-green-500'
+                            className='py-1 px-2 hover:bg-green-500 min-w-[80px]'
                             key={sm.text}
                           >
-                            <a href={sm.link} className='text-white '>
+                            <Link
+                              to={sm.link}
+                              className='text-white whitespace-nowrap'
+                            >
                               {sm.text}
-                            </a>
+                            </Link>
                           </div>
                         );
                       })}
@@ -125,13 +128,13 @@ export const NavBar: React.FC = () => {
                     {menu.subMenus?.length &&
                       menu.subMenus.map((subMenu) => {
                         return (
-                          <a
+                          <Link
                             key={subMenu.text}
-                            href={subMenu.link}
-                            className='block text-sm pl-8 py-2 '
+                            to={subMenu.link}
+                            className='block text-sm pl-8 py-2 whitespace-nowrap'
                           >
                             {subMenu.text}
-                          </a>
+                          </Link>
                         );
                       })}
                   </div>
