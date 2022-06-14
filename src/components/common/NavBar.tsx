@@ -127,7 +127,7 @@ export const NavBar: React.FC = () => {
                           <a
                             key={subMenu.text}
                             href={subMenu.link}
-                            className='block text-sm pl-8 py-2'
+                            className='block text-sm pl-8 py-2 '
                           >
                             {subMenu.text}
                           </a>
