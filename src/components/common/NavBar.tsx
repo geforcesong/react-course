@@ -9,7 +9,7 @@ export const NavBar: React.FC = () => {
         link: '/',
       },
       {
-        text: "About",
+        text: 'About',
         subMenus: [
           { text: 'Demo', link: '/demo' },
           { text: 'Contact', link: '/contact' },
