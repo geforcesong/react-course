@@ -1,23 +1,38 @@
 import ActionBase from '../../types/ActionBase';
+import DialogProps from '../../types/DialogProps';
 
 import { ActionType } from './actions';
 
 export type State = {
-  dialogStatus: boolean;
+  dialogProps: DialogProps;
 };
 
 const initialState: State = {
-  dialogStatus: false,
+  dialogProps: {
+    title: '',
+    body: '',
+    isOpen: null,
+    component: undefined,
+  },
 };
 
 const reducer = (state: State, action: ActionBase): State => {
-  if (
-    action.type === ActionType.OpenDialog ||
-    action.type === ActionType.CloseDialog
-  ) {
+  if (action.type === ActionType.OpenDialog) {
     return {
       ...state,
-      dialogStatus: action.payload,
+      dialogProps: action.payload,
+    };
+  }
+
+  if (action.type === ActionType.CloseDialog) {
+    return {
+      ...state,
+      dialogProps: {
+        isOpen: false,
+        title: '',
+        body: '',
+        component: undefined,
+      },
     };
   }
 

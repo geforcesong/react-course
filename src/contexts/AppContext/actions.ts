@@ -3,9 +3,22 @@ export enum ActionType {
   CloseDialog = 'CLOSE_DIALOG',
 }
 
-export const openAppDialog = () => ({
+export const openAppDialog = ({
+  title,
+  body,
+  component,
+}: {
+  title: string;
+  body?: string;
+  component?: () => JSX.Element;
+}) => ({
   type: ActionType.OpenDialog,
-  payload: true,
+  payload: {
+    title,
+    body,
+    isOpen: true,
+    component,
+  },
 });
 
 export const closeAppDialog = () => ({
