@@ -8,6 +8,7 @@
     padding: 0px;
     height: 100%;
   }
+
   &[open] {
     animation: fade-in 500ms forwards;
   }
@@ -34,34 +35,3 @@
     }
   }
 }
-
-// .my-dialog::backdrop {
-//   background-color: purple;
-//   opacity: 0.3;
-// }
-
-// .my-dialog[open]::backdrop {
-//   animation: backdrop-fade-in 500ms forwards;
-// }
-
-// .my-dialog[closing]::backdrop {
-//   animation: backdrop-fade-out 500ms forwards;
-// }
-
-// @keyframes backdrop-fade-in {
-//   0% {
-//     opacity: 0;
-//   }
-//   100% {
-//     opacity: 0.3;
-//   }
-// }
-
-// @keyframes backdrop-fade-out {
-//   0% {
-//     opacity: 0.3;
-//   }
-//   100% {
-//     opacity: 0;
-//   }
-// }
