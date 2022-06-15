@@ -3,18 +3,21 @@ import ActionBase from '../../types/ActionBase';
 import { ActionType } from './actions';
 
 export type State = {
-  userName: string;
+  dialogStatus: boolean;
 };
 
 const initialState: State = {
-  userName: 'George',
+  dialogStatus: false,
 };
 
 const reducer = (state: State, action: ActionBase): State => {
-  if (action.type === ActionType.SetUserName) {
+  if (
+    action.type === ActionType.OpenDialog ||
+    action.type === ActionType.CloseDialog
+  ) {
     return {
       ...state,
-      userName: action.payload,
+      dialogStatus: action.payload,
     };
   }
 

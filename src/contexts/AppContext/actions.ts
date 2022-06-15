@@ -1,8 +1,14 @@
 export enum ActionType {
-  SetUserName = 'SET_USER_NAME',
+  OpenDialog = 'OPEN_DIALOG',
+  CloseDialog = 'CLOSE_DIALOG',
 }
 
-export const setUserName = (name: string) => ({
-  type: ActionType.SetUserName,
-  payload: name,
+export const openAppDialog = () => ({
+  type: ActionType.OpenDialog,
+  payload: true,
+});
+
+export const closeAppDialog = () => ({
+  type: ActionType.CloseDialog,
+  payload: false,
 });
