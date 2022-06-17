@@ -27,7 +27,7 @@ const AppDialog: React.FC = () => {
   const CustomComponent = dialogProps.component;
 
   return (
-    <Dialog ref={dialogRef}>
+    <Dialog ref={dialogRef} backDropClicked={closeClick}>
       {dialogProps.isOpen && (
         <div className='relative w-full max-w-2xl h-full md:h-auto'>
           <div className='relative bg-white rounded-lg shadow dark:bg-gray-700'>

@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 
 type DialogProps = {
   onClosed?: () => void;
+  backDropClicked?: () => void;
   children: React.ReactNode;
 };
 
@@ -44,7 +45,7 @@ const Dialog = React.forwardRef<DialogHandles, DialogProps>((props, ref) => {
   const handleClick = (e: React.MouseEvent<HTMLDialogElement, MouseEvent>) => {
     const target = e.target as HTMLElement;
     if (target?.nodeName === 'DIALOG') {
-      closeModal();
+      props?.backDropClicked?.();
     }
   };
 
