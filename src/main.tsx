@@ -7,12 +7,10 @@ import AppContextProvider from './contexts/AppContext';
 import AppDialog from './components/common/AppDialog';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <AppContextProvider>
-      <>
-        <App />
-        <AppDialog />
-      </>
-    </AppContextProvider>
-  </React.StrictMode>,
+  <AppContextProvider>
+    <>
+      <App />
+      <AppDialog />
+    </>
+  </AppContextProvider>,
 );
