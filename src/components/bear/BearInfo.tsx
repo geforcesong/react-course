@@ -22,12 +22,12 @@ export const BearInfo: React.FC = () => {
       <div>
         <Button
           text='Add Bear'
-          className={'mr-2'}
+          className='mr-2'
           onClick={() => increasePopulation(1)}
         />
         <Button
           text='Change Type'
-          color={'purple'}
+          color='purple'
           onClick={() => changeType()}
         />
       </div>
