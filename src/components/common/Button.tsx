@@ -1,8 +1,14 @@
-type Dic = {
-  [key: string]: string;
-};
+interface ColorClassPlates {
+  blue: string;
+  purple: string;
+  green: string;
+  red: string;
+  yellow: string;
+  lightblue: string;
+  gray: string;
+}
 
-const ColorClassPlates: Dic = {
+const ColorClassPlates: ColorClassPlates = {
   blue: 'bg-blue-600 hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-800',
   purple:
     'bg-purple-600 hover:bg-purple-700 focus:bg-purple-700 active:bg-purple-800',
@@ -19,7 +25,7 @@ const ColorClassPlates: Dic = {
 type ButtonProps = {
   onClick?: () => void;
   text: string;
-  color?: keyof Dic;
+  color?: keyof ColorClassPlates;
   className?: string;
 };
 
