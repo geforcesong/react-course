@@ -6,11 +6,12 @@ import { Button } from '../common/Button';
 export const BearInfo: React.FC = () => {
   //   const bears = useBearStore((state) => state.bears);
   //   const bearKind = useBearStore((state) => state.bearKind);
-
   const { bears, bearKind } = useBearStore(
     (state) => ({ bearKind: state.bearKind, bears: state.bears }),
     shallow,
   );
+
+  console.count('BearInfo render count');
 
   const increasePopulation = useBearStore((state) => state.increase);
   const changeType = useBearStore((state) => state.changeType);
