@@ -1,15 +1,17 @@
-// type PersonAction = {
-//   walk: () => void;
-//   talk: () => void;
-// };
+async function Test() {
+  const a = 'Hello';
 
-// type BooleanFieldsProps<T> = {
-//   [Property in keyof T]: boolean;
-// };
+  const b: string = a as unknown as string;
 
-// // type PersonProps = BooleanFieldsProps<PersonAction>;
+  console.log(a, b);
+  await delay(3);
+  console.log('hello');
+}
 
-// type PersonProps = {
-//     walk: boolean;
-//     talk: boolean;
-// }
+async function delay(second: number) {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, second * 1000);
+  });
+}
+
+Test();
