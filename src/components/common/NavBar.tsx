@@ -28,7 +28,10 @@ export const NavBar: React.FC = () => {
       },
       {
         text: 'Tests',
-        subMenus: [{ text: 'Form Test', link: '/tests/form' }],
+        subMenus: [
+          { text: 'Form Test', link: '/tests/form' },
+          { text: 'Temp Test', link: '/tests/temp-test' },
+        ],
       },
     ],
     [],

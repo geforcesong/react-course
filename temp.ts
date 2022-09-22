@@ -1,17 +1,18 @@
-async function Test() {
-  const a = 'Hello';
-
-  const b: string = a as unknown as string;
-
-  console.log(a, b);
-  await delay(3);
-  console.log('hello');
-}
-
-async function delay(second: number) {
-  return new Promise<void>((resolve) => {
-    setTimeout(resolve, second * 1000);
+async function delay(seconds: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, seconds * 1000);
   });
 }
 
-Test();
+async function* numGenerator(times: number) {
+  while (times--) {
+    await delay(2);
+    yield Math.floor(Math.random() * 100);
+  }
+}
+
+(async () => {
+  for await (const d of numGenerator(5)) {
+    console.log('generated: ', d);
+  }
+})();

@@ -5,6 +5,7 @@ import FormTestPage from './pages/FormTestPage';
 import HomePage from './pages/HomePage';
 import LicensePage from './pages/LicensePage';
 import ParentChildTest from './pages/ParentChildTest';
+import TempTest from './pages/UseEventPage';
 import ZustandTestPage from './pages/ZustandTestPage';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/zustand' element={<ZustandTestPage />} />
           <Route path='/tests/form' element={<FormTestPage />} />
           <Route path='/parent-child' element={<ParentChildTest />} />
+          <Route path='/tests/temp-test' element={<TempTest />} />
         </Routes>
       </BrowserRouter>
     </div>
