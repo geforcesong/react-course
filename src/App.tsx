@@ -7,6 +7,7 @@ import LicensePage from './pages/LicensePage';
 import ParentChildTest from './pages/ParentChildTest';
 import TempTest from './pages/UseEventPage';
 import ZustandTestPage from './pages/ZustandTestPage';
+import RtkQueryTestPage from './pages/RtkQueryTestPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/tests/form' element={<FormTestPage />} />
           <Route path='/parent-child' element={<ParentChildTest />} />
           <Route path='/tests/temp-test' element={<TempTest />} />
+          <Route path='/tests/rtk-query-test' element={<RtkQueryTestPage />} />
         </Routes>
       </BrowserRouter>
     </div>

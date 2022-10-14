@@ -27,6 +27,7 @@ type ButtonProps = {
   text: string;
   color?: keyof ColorClassPlates;
   className?: string;
+  type?: 'button' | 'submit' | 'reset';
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -34,6 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
   color,
   onClick,
   className,
+  type = 'button',
 }: ButtonProps) => {
   const colorTheme = ColorClassPlates[color || 'blue'];
   const colorThemeClass =
@@ -41,7 +43,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      type='button'
+      type={type}
       className={colorThemeClass + ` ${className || ''}`}
     >
       {text}

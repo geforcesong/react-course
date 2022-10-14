@@ -1,4 +1,10 @@
 const AboutPage: React.FC = () => {
+  const testKey = '';
+  const options: any = {};
+  if (testKey) {
+    options['data-testid'] = testKey;
+  }
+
   return (
     <div>
       <div className='p-6 font-medium'>
@@ -70,6 +76,8 @@ const AboutPage: React.FC = () => {
           placeholder='John'
           required
         />
+
+        <div {...options}>Hi There</div>
       </div>
     </div>
   );
