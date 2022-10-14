@@ -8,6 +8,7 @@ import ParentChildTest from './pages/ParentChildTest';
 import TempTest from './pages/UseEventPage';
 import ZustandTestPage from './pages/ZustandTestPage';
 import RtkQueryTestPage from './pages/RtkQueryTestPage';
+import ReactQueryCourse from './pages/ReactQueryCourse';
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
           <Route path='/parent-child' element={<ParentChildTest />} />
           <Route path='/tests/temp-test' element={<TempTest />} />
           <Route path='/tests/rtk-query-test' element={<RtkQueryTestPage />} />
+          <Route
+            path='/tests/react-query-course'
+            element={<ReactQueryCourse />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

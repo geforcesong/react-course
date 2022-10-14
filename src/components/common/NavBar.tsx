@@ -32,6 +32,7 @@ export const NavBar: React.FC = () => {
           { text: 'Form Test', link: '/tests/form' },
           { text: 'Temp Test', link: '/tests/temp-test' },
           { text: 'RTK Query Test', link: '/tests/rtk-query-test' },
+          { text: 'React Query Course', link: '/tests/react-query-course' },
         ],
       },
     ],

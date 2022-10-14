@@ -1,3 +1,5 @@
+import { FaBeer } from 'react-icons/fa';
+
 const AboutPage: React.FC = () => {
   const testKey = '';
   const options: any = {};
@@ -8,10 +10,10 @@ const AboutPage: React.FC = () => {
   return (
     <div>
       <div className='p-6 font-medium'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-        mollitia ex sint consequuntur, repudiandae minima, illum numquam quae
-        similique soluta expedita eius incidunt illo perferendis assumenda
-        laborum necessitatibus? Est, ea.
+        <FaBeer /> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Accusamus mollitia ex sint consequuntur, repudiandae minima, illum
+        numquam quae similique soluta expedita eius incidunt illo perferendis
+        assumenda laborum necessitatibus? Est, ea.
       </div>
       <div className='p-6 font-medium'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
