@@ -27,7 +27,6 @@ const tabItems = [
 ];
 
 const HomePage: React.FC = () => {
-  console.log('hello');
   return (
     <div>
       Class component Test

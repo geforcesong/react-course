@@ -24,6 +24,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
+    "no-console": "error",
     quotes: ['error', 'single'],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
