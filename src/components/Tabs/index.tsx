@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './index.module.scss';
+import ProgressBar from '../ProgressBar';
 
 export interface TabItem {
   id: string | number;
@@ -15,41 +16,24 @@ export interface Props {
 }
 
 const Tabs: React.FC<Props> = ({ items, onTabChanged }) => {
-  const [tabItems, setTabItems] = useState<Array<TabItem> | null>(null);
-
-  useEffect(() => {
-    if (items) {
-      setTabItems(items);
-    }
-  }, [items]);
-
   const handleClick = (item: TabItem) => {
-    if (!tabItems) {
+    if (!items) {
       return;
     }
-    const activeItem = tabItems.find((item: TabItem) => item.active);
+    const activeItem = items.find((item: TabItem) => item.active);
     if (activeItem === item) {
       return;
     }
-    setTabItems(
-      tabItems.map((ci: TabItem) => ({
-        ...ci,
-        active: ci === item,
-      })),
-    );
     onTabChanged?.(item);
   };
 
-  if (!tabItems?.length) {
+  if (!items?.length) {
     return null;
   }
 
   return (
     <div className={styles['tab-container']}>
-      {tabItems.map((item: TabItem) => {
-        const progressStyle = item.progressValue
-          ? ({ '--progress-value': item.progressValue } as React.CSSProperties)
-          : null;
+      {items.map((item: TabItem) => {
         return (
           <div
             key={item.id}
@@ -62,14 +46,7 @@ const Tabs: React.FC<Props> = ({ items, onTabChanged }) => {
           >
             {item.component}
 
-            {progressStyle && (
-              <div className={styles.progress}>
-                <div
-                  className={styles['progress-indicator']}
-                  style={progressStyle}
-                ></div>
-              </div>
-            )}
+            {<ProgressBar value={item.progressValue} />}
           </div>
         );
       })}
