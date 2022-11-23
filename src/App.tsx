@@ -11,6 +11,9 @@ import RtkQueryTestPage from './pages/RtkQueryTestPage';
 import ReactQueryCourse from './pages/ReactQueryCourse';
 
 function App() {
+  /* eslint no-console: "off" */
+  console.log('Env User Name:', import.meta.env);
+
   return (
     <div>
       <BrowserRouter>
