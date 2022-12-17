@@ -11,6 +11,7 @@ const tabItems = [
     active: true,
     disabled: false,
     progressValue: 0.3,
+    content: <div>tab1 content</div>,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const tabItems = [
     active: false,
     disabled: false,
     progressValue: 0.2,
+    content: <div>tab2 content</div>,
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const tabItems = [
     active: false,
     disabled: false,
     progressValue: 0.6,
+    content: <div>tab3 content</div>,
   },
 ];
 

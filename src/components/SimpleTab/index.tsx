@@ -6,6 +6,7 @@ export interface TabItem {
   component: JSX.Element | string;
   active: boolean;
   disabled: boolean;
+  content?: JSX.Element;
 }
 
 export interface Props {
@@ -31,24 +32,36 @@ const SimpleTab: React.FC<Props> = ({ items, onTabChanged }) => {
   } as React.CSSProperties;
 
   return (
-    <div className={styles['tab-container']} style={constainerStyle}>
+    <>
+      <div className={styles['tab-container']} style={constainerStyle}>
+        {items.map((item: TabItem) => {
+          return (
+            <div
+              key={item.id}
+              className={
+                item.active
+                  ? `${styles['tab-item-container']} ${styles.active}`
+                  : styles['tab-item-container']
+              }
+              onClick={() => handleClick(item)}
+            >
+              {item.component}
+            </div>
+          );
+        })}
+        <div className={styles.indicator}></div>
+      </div>
       {items.map((item: TabItem) => {
+        if (!item.content || !item.active) {
+          return null;
+        }
         return (
-          <div
-            key={item.id}
-            className={
-              item.active
-                ? `${styles['tab-item-container']} ${styles.active}`
-                : styles['tab-item-container']
-            }
-            onClick={() => handleClick(item)}
-          >
-            {item.component}
+          <div key={item.id} className={styles['content-container']}>
+            {item.content}
           </div>
         );
       })}
-      <div className={styles.indicator}></div>
-    </div>
+    </>
   );
 };
 
