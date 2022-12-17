@@ -2,6 +2,7 @@ import ClassTest from '../components/test/ClassTest';
 import { Conditional } from '../components/test/Conditional';
 import Tabs, { TabItem } from '../components/Tabs';
 import { useState } from 'react';
+import SimpleTab from '../components/SimpleTab';
 
 const tabItems = [
   {
@@ -46,6 +47,8 @@ const HomePage: React.FC = () => {
       <Conditional count={1} />
       sdf
       <Tabs items={items} onTabChanged={handleTabItemChanged} />
+      <br /> <br />
+      <SimpleTab items={items} onTabChanged={handleTabItemChanged} />
     </div>
   );
 };

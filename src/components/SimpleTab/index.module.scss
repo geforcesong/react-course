@@ -1,0 +1,30 @@
+.tab-container {
+  background-color: aqua;
+  display: flex;
+  position: relative;
+  --tab-width: 150px;
+  --index: 0;
+
+  .tab-item-container {
+    padding: 10px;
+    background-color: antiquewhite;
+    cursor: pointer;
+    position: relative;
+    width: var(--tab-width);
+  }
+
+  .active {
+    color: orange;
+    background-color: blueviolet;
+  }
+
+  .indicator {
+    width: var(--tab-width);
+    height: 5px;
+    background-color: pink;
+    position: absolute;
+    bottom: 0;
+    left: calc(var(--tab-width) * var(--index, 0));
+    transition: all 0.3s ease-in-out;
+  }
+}
