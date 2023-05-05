@@ -1,0 +1,22 @@
+.container {
+  .item-wrapper {
+    cursor: pointer;
+
+    .grid-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.2s ease-out;
+      background-color: pink;
+
+      .inner {
+        overflow: hidden;
+      }
+    }
+
+    &.active {
+      .grid-wrapper {
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+}
