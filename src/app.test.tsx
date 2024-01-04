@@ -1,11 +1,10 @@
 import { describe, it } from 'vitest';
 import { render } from '@testing-library/react';
-
-import App from './App';
+import AboutPage from './pages/AboutPage';
 
 describe('App', () => {
   it('renders headline', () => {
-    render(<App />);
+    render(<AboutPage />);
 
     // screen.debug();
 
