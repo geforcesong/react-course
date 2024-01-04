@@ -12,7 +12,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier'
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,10 +24,10 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    "no-console": "error",
+    'no-console': 'error',
     quotes: ['error', 'single'],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
-    "@typescript-eslint/no-unused-vars": "error",
+    '@typescript-eslint/no-unused-vars': 'error',
   },
 };
